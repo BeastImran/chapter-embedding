@@ -4,6 +4,8 @@ This mini project was a result of my own curiosity. I wanted the youtube timesta
 videos also but when you download videos from youtube they won't come pre-embeded.
 
 So, i decided to do this.
+
+If any issue occurs, i am more than happy to help you. ![Join](https://t.me/Chapters_embedding_public_group) this telegram group for any kind of reporting or support.
 <br><br>
 # Requirments
 1) [python3](https://www.python.org/downloads/)
@@ -26,7 +28,7 @@ Git clone the repo to you machine and cd into the chapter-embedding directory an
 
 hope you already satisfy the requirements.
 
-1. start the execution of [main.py]((https://raw.githubusercontent.com/BeastImran/chapter-embedding/main/main.py)) through terminal as follows.
+1. start the execution of [main.py](./main.py) through terminal as follows.
 
     ![python3 main.py](./images/first.png)
 
