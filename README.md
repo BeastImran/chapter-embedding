@@ -5,7 +5,7 @@ videos also but when you download videos from youtube they won't come pre-embede
 
 So, i decided to do this.
 
-If any issue occurs, i am more than happy to help you. ![Join](https://t.me/Chapters_embedding_public_group) this telegram group for any kind of reporting or support.
+If any issue occurs, i am more than happy to help you. Join [this](https://t.me/Chapters_embedding_public_group) telegram group for any kind of reporting or support.
 <br><br>
 # Requirments
 1) [python3](https://www.python.org/downloads/)
