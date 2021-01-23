@@ -10,9 +10,11 @@ If any issue occurs, i am more than happy to help you. Join [this](https://t.me/
 # Requirments
 1) [python3](https://www.python.org/downloads/)
 
-    python-magic python module is required for file validation. use the bellow command to install it.
+    python-magic-bin python module is required for file validation. use the bellow command to install it.
 
-        pip3 install python-magic
+        pip3 install python-magic-bin
+
+    python-magic-bin is prefered because it comes pre configured with all required dlls and other stuff. python-magic module takes additional setups which is PIA.
 
 2) [ffmpeg](https://ffmpeg.org/download.html)
 
@@ -20,7 +22,7 @@ If any issue occurs, i am more than happy to help you. Join [this](https://t.me/
 
         sudo apt install ffmpeg
 
-    mac and windows users might need to download and setup ffmpeg from this [site](https://ffmpeg.org/download.html).
+    mac and windows users might need to download and setup ffmpeg and ffprobe from this [site](https://ffmpeg.org/download.html).
 <br><br>
 # Steps to perform
 

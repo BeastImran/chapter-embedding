@@ -38,7 +38,18 @@ def embed_chapters(chapters, video, text_path):
             end_time = chapters[i + 1]["start_time"] - 1
 
             final_format += f"\n[CHAPTER]\nTIMEBASE=1/1000\nSTART={start_time}\nEND={end_time}\ntitle={title}\n\n"
-
+        start_time = end_time + 1
+        try:
+            end_time = int(float(subprocess.run(["ffprobe", "-v", "error", "-show_entries",
+                                            "format=duration", "-of",
+                                            "default=noprint_wrappers=1:nokey=1", video],
+                                            stdout=subprocess.PIPE,
+                                            stderr=subprocess.STDOUT).stdout)) * 1000
+        except:
+            print("\n\nFailed to get the end time of video using ffprobe!\n")
+            return False
+        title = chapters[-1]["title"]
+        final_format += f"\n[CHAPTER]\nTIMEBASE=1/1000\nSTART={start_time}\nEND={end_time}\ntitle={title}\n\n"
         print("\nCreated the chapters final format\n")
 
         print("\nMetadata extraction started")

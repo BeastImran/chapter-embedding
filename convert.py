@@ -9,7 +9,7 @@ def convert_to_required_format(path):
                    
                     # extracting content
                     line = line.strip().split()
-                    if len(line) > 0:
+                    if len(line) > 1:
                         timestamp = line[0].split(':')
 
                         # convert to hrs, mins and hrs
