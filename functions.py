@@ -46,10 +46,12 @@ def convert_to_required_format(path):
 
                         # convert to hrs, mins and hrs
                         if len(timestamp) == 3:
+                            print("timestamp: 3")
                             hours = int(timestamp[0])
                             minutes = int(timestamp[1])
                             secs = int(timestamp[2])
                         elif len(timestamp) == 2:
+                            print("timestamp: 2")
                             hours = 0
                             minutes = int(timestamp[0])
                             secs = int(timestamp[1])
@@ -72,7 +74,13 @@ def convert_to_required_format(path):
 
             else:
                 print("\nFile is empty!\n")
-        return chapters
+        
+        for i in range(len(chapters)-1):
+            if not chapters[i]["start_time"] < chapters[i+1]["start_time"]:
+                print(f'There is some timing problem with the timestamps text file.\nProbably the timestamp order is wrong or of wrong format!\nProblem after the \'{chapters[i]["title"]}\' title!')
+                break
+        else:
+            return chapters
     except Exception as e:
         print("\nSomething is not right with the timestamps text file!\nProbably the timestamps are not in right format!\nerror:",e)
 
@@ -97,14 +105,19 @@ def embed_chapters(chapters, video, text_path):
         if "output" in folder_contents:
             idx = folder_contents.index('output')
             if not isdir(folder_contents[idx]):
-                mkdir(OUTPUT_VIDEO_PATH)
+                try:
+                    mkdir(OUTPUT_VIDEO_PATH)
+                except:
+                    print("Expected")
+            else:
+                pass
         else:
             print("\ncreated output folder\n")
             mkdir(OUTPUT_VIDEO_PATH)
 
         FFMETADATAFILE_FILE_PATH = join(OUTPUT_VIDEO_PATH, "FFMETADATAFILE.txt")
         EXTRACTION_CMD = ['ffmpeg', '-y', '-hide_banner', '-loglevel', 'panic', '-i', video, '-f', 'ffmetadata', FFMETADATAFILE_FILE_PATH]
-        EMBEDDING_CMD = ['ffmpeg', '-hide_banner', '-loglevel', 'panic', '-i', video, '-i', FFMETADATAFILE_FILE_PATH, '-map_metadata', '1', '-codec', 'copy', OUTPUT_VIDEO_NAME]
+        EMBEDDING_CMD = ['ffmpeg', '-y', '-hide_banner', '-loglevel', 'panic', '-i', video, '-i', FFMETADATAFILE_FILE_PATH, '-map_metadata', '1', '-codec', 'copy', OUTPUT_VIDEO_NAME]
 
         final_format = ""
         # covert to required format
