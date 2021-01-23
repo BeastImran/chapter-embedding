@@ -1,22 +1,24 @@
-import functions
+from input import take_path_input
+from embed import embed_chapters
+from convert import convert_to_required_format
 
 
 def main():
 
     # video's path
-    video_path = functions.take_path_input("video")
+    video_path = take_path_input("video")
     if video_path:
 
         # timestamps text file path
-        text_path = functions.take_path_input("timestamps text file")
+        text_path = take_path_input("timestamps text file")
         if text_path:
 
             # check if the conversion of timestamps to required format was successfull
-            converted = functions.convert_to_required_format(text_path)
+            converted = convert_to_required_format(text_path)
             if converted:
 
                 # final result. operation success or failed
-                sucess = functions.embed_chapters(converted, video_path, text_path)
+                sucess = embed_chapters(converted, video_path, text_path)
 
                 if sucess:
                     print("\nHopefully! successfull\n")

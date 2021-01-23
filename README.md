@@ -24,7 +24,7 @@ If any issue occurs, i am more than happy to help you. Join [this](https://t.me/
 <br><br>
 # Steps to perform
 
-Git clone the repo to you machine and cd into the chapter-embedding directory and follow the bellow steps.
+Git clone the repo to your machine, cd into the chapter-embedding directory and follow the bellow steps.
 
 hope you already satisfy the requirements.
 
