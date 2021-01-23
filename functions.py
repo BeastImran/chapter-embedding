@@ -80,7 +80,7 @@ def convert_to_required_format(path):
 # will output chapter embeded video to video's path + output directory
 def embed_chapters(chapters, video, text_path):
     from os import listdir, mkdir
-    from os.path import basename, join
+    from os.path import basename, join, isdir
     import subprocess
 
 
@@ -95,7 +95,9 @@ def embed_chapters(chapters, video, text_path):
             video_path = '.'
         folder_contents = listdir(video_path)
         if "output" in folder_contents:
-            pass
+            idx = folder_contents.index('output')
+            if not isdir(folder_contents[idx]):
+                mkdir(OUTPUT_VIDEO_PATH)
         else:
             print("\ncreated output folder\n")
             mkdir(OUTPUT_VIDEO_PATH)
