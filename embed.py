@@ -26,7 +26,7 @@ def embed_chapters(chapters, video, text_path):
 
         FFMETADATAFILE_FILE_PATH = join(OUTPUT_VIDEO_PATH, "FFMETADATAFILE.txt")
         EXTRACTION_CMD = ['ffmpeg', '-y', '-hide_banner', '-loglevel', 'panic', '-i', video, '-f', 'ffmetadata', FFMETADATAFILE_FILE_PATH]
-        EMBEDDING_CMD = ['ffmpeg', '-y', '-hide_banner', '-loglevel', 'panic', '-i', video, '-i', FFMETADATAFILE_FILE_PATH, '-map_metadata', '1', '-codec', 'copy', OUTPUT_VIDEO_NAME]
+        EMBEDDING_CMD = ['ffmpeg', '-hide_banner', '-loglevel', 'panic', '-i', video, '-i', FFMETADATAFILE_FILE_PATH, '-map_metadata', '1', '-codec', 'copy', OUTPUT_VIDEO_NAME]
 
         final_format = ""
         # covert to required format
