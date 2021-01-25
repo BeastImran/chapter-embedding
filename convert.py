@@ -5,12 +5,20 @@ def convert_to_required_format(path):
         with open(path, 'r') as f:
             content = f.read()
             if len(content) > 0:
+                from string import printable
                 for line in content.split('\n'):
-                   
+
                     # extracting content
                     line = line.strip().split()
                     if len(line) > 1:
-                        timestamp = line[0].split(':')
+                        timestamp = line[0]
+
+                        # handle unnecessary non ascii characters and replace it with a space
+                        for i in timestamp:
+                            if i not in "0123456789:":
+                                timestamp = timestamp.replace(i, '')
+
+                        timestamp = timestamp.split(':')
 
                         # convert to hrs, mins and hrs
                         if len(timestamp) == 3:
